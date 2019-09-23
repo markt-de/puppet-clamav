@@ -20,7 +20,7 @@ class clamav::clamav_milter(
     path    => $clamav::clamav_milter_config,
     mode    => '0644',
     owner   => 'root',
-    group   => 'root',
+    group   => $clamav::root_group,
     content => template("${module_name}/clamav.conf.erb"),
   }
 
