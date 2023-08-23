@@ -55,47 +55,13 @@ class clamav (
   # Input validation
   $valid_service_statuses = '^(stopped|false|running|true)$'
 
-  validate_bool($manage_user, $manage_repo, $manage_clamd, $manage_freshclam, $manage_clamav_milter)
-  validate_string($clamav_package)
-  validate_string($clamav_version)
-
-  # user
-  validate_string($comment)
-  validate_absolute_path($home)
-  validate_absolute_path($shell)
-
-  # clamd
-  validate_string($clamd_package)
-  validate_string($clamd_version)
-  validate_absolute_path($clamd_config)
-  validate_string($clamd_service)
-  validate_re($clamd_service_ensure, $valid_service_statuses)
-  validate_bool($clamd_service_enable)
-  validate_hash($clamd_options)
   $_clamd_options = merge($clamav::params::clamd_default_options, $clamd_options)
 
   # freshclam
-  validate_absolute_path($freshclam_config)
-  validate_re($freshclam_service_ensure, $valid_service_statuses)
-  validate_bool($freshclam_service_enable)
-  validate_hash($freshclam_options)
   $_freshclam_options = merge($clamav::params::freshclam_default_options, $freshclam_options)
-  if $freshclam_sysconfig {
-    validate_absolute_path($freshclam_sysconfig)
-  }
-  if $freshclam_delay {
-    validate_string($freshclam_delay)
-  }
 
   # clamav_milter
   if $manage_clamav_milter {
-    validate_string($clamav_milter_package)
-    validate_string($clamav_milter_version)
-    validate_absolute_path($clamav_milter_config)
-    validate_string($clamav_milter_service)
-    validate_re($clamav_milter_service_ensure, $valid_service_statuses)
-    validate_bool($clamav_milter_service_enable)
-    validate_hash($clamav_milter_options)
     $_clamav_milter_options = merge($clamav::params::clamav_milter_default_options, $clamav_milter_options)
   }
 
