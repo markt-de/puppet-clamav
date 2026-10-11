@@ -18,8 +18,8 @@ class clamav (
   $groups                       = $clamav::params::groups,
   $root_group                   = $clamav::params::root_group,
 
-  String $clamd_package         = $clamav::params::clamd_package,
-  String $clamd_version         = $clamav::params::clamd_version,
+  Optional[String] $clamd_package = $clamav::params::clamd_package,
+  Optional[String] $clamd_version = $clamav::params::clamd_version,
   Stdlib::Absolutepath $clamd_config = $clamav::params::clamd_config,
   String $clamd_service         = $clamav::params::clamd_service,
   $clamd_service_ensure         = $clamav::params::clamd_service_ensure,
@@ -42,7 +42,7 @@ class clamav (
   Optional[String]               $clamav_milter_service        = $clamav::params::clamav_milter_service,
   String                         $clamav_milter_service_ensure = $clamav::params::clamav_milter_service_ensure,
   Boolean                        $clamav_milter_service_enable = $clamav::params::clamav_milter_service_enable,
-  Hash                           $clamav_milter_options        = $clamav::params::clamav_milter_options,
+  Optional[Hash]                 $clamav_milter_options        = $clamav::params::clamav_milter_options,
 
   Optional[Hash]                 $clamd_default_options        = undef,
   Optional[Hash]                 $freshclam_default_options    = undef,
