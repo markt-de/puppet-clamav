@@ -197,14 +197,14 @@ class clamav::params {
     $clamd_package     = undef
     $clamd_version     = undef
     $clamd_config      = '/usr/local/etc/clamd.conf'
-    $clamd_service     = 'clamav-clamd'
+    $clamd_service     = 'clamav_clamd'
     $clamd_options     = {}
 
     #### freshclam vars ####
     $freshclam_package = undef
     $freshclam_version = undef
     $freshclam_config  = '/usr/local/etc/freshclam.conf'
-    $freshclam_service = 'clamav-freshclam'
+    $freshclam_service = 'clamav_freshclam'
     $freshclam_options = {}
     $freshclam_sysconfig = undef
     $freshclam_delay     = undef
